@@ -10,8 +10,14 @@ body{
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
 }
-#boton1{
-  color: #0a88d6;
+.coloca{
+  color: #072bcc;
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+.price{
+  color: #191919;
 }
 .contenedor{
   width: 90%;
