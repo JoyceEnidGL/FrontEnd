@@ -17,7 +17,7 @@ body{
   grid-gap: 10px;
 }
 .price{
-  color: #191919;
+  color: #000000;
 }
 .contenedor{
   width: 90%;
@@ -261,7 +261,7 @@ body{
   max-width: 600px;
 }
 
-.modal .btn-cerrar{
+.modal .btn-cerrar {
   position: fixed;
   width: 50px;
   height: 50px;
@@ -277,6 +277,25 @@ body{
   font-size: 1rem;
   line-height: 50px;
 }
+
+.modal .btn-carrito i{
+  position: absolute;
+  top: auto; left: 30px;
+  width: 200px;
+  height: 50px;
+  top: 20px;
+  right: 20px;
+  background: #04e2ab;
+  text-align: center;
+  cursor: pointer;
+}
+.modal .btn-carrito i{
+  color: rgb(0, 0, 0);
+  font-size: larger;
+  line-height: 50px;
+  font-weight: bold;
+}
+
 
 /*Acerca de*/
 
