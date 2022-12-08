@@ -314,20 +314,8 @@
                   <p class="error">Por favor verifica tu nombre</p>
                 </div>
                 <div>
-<<<<<<< HEAD
                   <input type="submit" name="enviar" value="ENTRAR" id="Enviar">
-                  <input type="submit" name="registratse" value="REGISTRATE">
-=======
-                  <textarea name="precio" placeholder="Precio" id="precio"></textarea>
-                  <p class="error">Por favor verifica el precio</p>
-                </div>
-                <div>
-                  <textarea name="link" placeholder="Link" id="link"></textarea>
-                  <p class="error">Por favor verifica el link</p>
-                </div>
-                <div>
-                  <input type="submit" name="enviar" value="ENTRAR" id="enviar">
->>>>>>> 5d2cb10dda2922d246da73e252a0208bba4b6824
+                  <input type="submit" name="registratse" value="REGISTRATE" id="Registro">
                 </div>
               </form>
             </div>
@@ -379,33 +367,48 @@
     <script src="js/prefixfree.min.js"></script>
       
     <script>
-      var bCrear = document.getElementById("enviar")
-      var bConsultar = document.getElementById("")
-      var bExiste = document.getElementById("")
-      var bDesbloquear = document.getElementById("")
+      var bCrear = document.getElementById("Registro")
+      var bConsultar = document.getElementById("Enviar")
+      //var bExiste = document.getElementById("")
+      //var bDesbloquear = document.getElementById("")
 
 
       bCrear.addEventListener("click", function () {
-          let id_ = document.getElementById("id").value
-          let nombre_ = document.getElementById("nombre").value
-          let precio_ = document.getElementById("precio").value
-          let link_ = document.getElementById("link").value
-          console.log(id_ + " " + nombre_ + " " + precio_ + " " + link_)
-          *axios.post("localhost:4567/creaProductos", {
-
-              id: id_,
-              nombre: nombre_,
-              precio: precio_,
-              link: link_
+          let id2="20"
+          let nombre2="bocina fea"
+          let precio2 ="1000"
+          let link2="https"
+          axios.post("http://localhost:4567/creaProductos", {
+              id: id2,
+              nombre: nombre2,
+              precio: precio2,
+              link: link2
+             
           })
               .then(function (response) {
                   console.log(response);
                   document.getElementById("id").value = response.data.id
+                  console.log(response.data);
               })
               .catch(function (error) {
                   console.log(error);
               });
       })
+
+
+      bConsultar.addEventListener("click", function () {
+          axios.get("http://localhost:4567/productos")
+              .then(function (response) {
+                  console.log(response.data);
+                  //tabla(response.data)
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+      })
+
+
+
 
 
      /* bDesbloquear.addEventListener("click", function () {
@@ -413,24 +416,11 @@
               document.getElementById("id1").disabled = false
           else
               document.getElementById("id1").disabled = true
-      })
+      })*/
 
-      bConsultar.addEventListener("click", function () {
-          let id_ = document.getElementById("id1").value
-          let nombre_ = document.getElementById("id2").value
-          let password_ = document.getElementById("id3").value
-          console.log(id_ + " " + nombre_ + " " + password_)
-          axios.get("https://despliegue-production-d251.up.railway.app/usuarios")
-              .then(function (response) {
-                  console.log(response);
-                  tabla(response.data)
-              })
-              .catch(function (error) {
-                  console.log(error);
-              });
-      })
+     
 
-      bExiste.addEventListener("click", function () {
+     /* bExiste.addEventListener("click", function () {
           let id_ = document.getElementById("id1").value
           let nombre_ = document.getElementById("id2").value
           let password_ = document.getElementById("id3").value
