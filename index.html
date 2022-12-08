@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>S - Gadgets</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
@@ -118,7 +119,6 @@
               <figcaption>Altavoz Inteligente con Alexa</figcaption>
               <div class="coloca">
                <figcaption class="price">$200</figcaption> 
-               <a id="boton1" href="#" class="boton01">Agregar al carrito</a>
               </div>
                
             </div>
@@ -127,7 +127,6 @@
               <figcaption>Audifonos "Kawai" para niño</figcaption>
               <div class="coloca">
                <figcaption class="price">$100</figcaption> 
-               <a id="boton1" href="#" class="boton01">Agregar al carrito</a>
               </div>
             </div>
             <div class="proyecto">
@@ -135,7 +134,6 @@
               <figcaption>Fire Stick TV lite 4k</figcaption>
               <div class="coloca">
                <figcaption class="price">$750</figcaption> 
-               <a id="boton1" href="#" class="boton01">Agregar al carrito</a>
               </div>
             </div>
             <div class="proyecto">
@@ -143,7 +141,6 @@
               <figcaption>Google Chromecast lite</figcaption>
               <div class="coloca">
                <figcaption class="price">$400</figcaption> 
-               <a id="boton1" href="#" class="boton01">Agregar al carrito</a>
               </div>
             </div>
             <div class="proyecto">
@@ -151,7 +148,6 @@
               <figcaption>Smartwatch J50-NRT</figcaption>
               <div class="coloca">
                <figcaption class="price">$250</figcaption> 
-               <a id="boton1" href="#" class="boton01">Agregar al carrito</a>
               </div>
             </div>
             <div class="proyecto">
@@ -159,7 +155,6 @@
               <figcaption>Tablet de diseño Inteligente</figcaption>
               <div class="coloca">
                <figcaption class="price">$1,000</figcaption> 
-               <a id="boton1" href="#" class="boton01">Agregar al carrito</a>
               </div>
             </div>
             <div class="proyecto">
@@ -167,7 +162,6 @@
               <figcaption>Audifonos JBL-Active 240</figcaption>
               <div class="coloca">
                <figcaption class="price">$600</figcaption> 
-               <a id="boton1" href="#" class="boton01">Agregar al carrito</a>
               </div>
             </div>
             <div class="proyecto">
@@ -175,7 +169,6 @@
               <figcaption>Bateria portatil 10,000mAh</figcaption>
               <div class="coloca">
                <figcaption class="price">$200</figcaption> 
-               <a id="boton1" href="#" class="boton01">Agregar al carrito</a>
               </div>
             </div>
             <div class="proyecto">
@@ -183,7 +176,8 @@
               <figcaption>Microfono Gamer LTJ-R500</figcaption>
               <div class="coloca">
                <figcaption class="price">$500</figcaption> 
-               <a id="boton1" href="#" class="boton01">Agregar al carrito</a>
+               <!--<a id="boton1" href="#" class="boton01">Agregar al carrito</a>-->
+               <!--<button type="button" id="agregar" class=" mt-5 btn btn-lg btn-danger"">Agregar</button>-->
               </div>
             </div>
           </div>
@@ -372,6 +366,103 @@
     t(function(){t('[data-parallax="scroll"]').parallax()})} -->
     <script src="js/prefixfree.min.js"></script>
       
+
+  <script>
+      var bCrear = document.getElementById("crear")
+      var bConsultar = document.getElementById("consultar")
+      //var bExiste = document.getElementById("existe")
+      //var bDesbloquear = document.getElementById("desbloquear")
+
+      /*bDesbloquear.addEventListener("click", function () {
+          if ( document.getElementById("desbloquear").checked == true )
+              document.getElementById("id1").disabled = false
+          else
+              document.getElementById("id1").disabled = true
+      })*/
+
+      bCrear.addEventListener("click", function () {
+          let id_ = document.getElementById("id1").value
+          let nombre_ = document.getElementById("id2").value
+          let producto_ = document.getElementById("id3").value
+          let link_ = document.getElementById("id4").value
+          console.log(id_ + " " + nombre_ + " " + producto_ + " " + link_)
+          axios.post("localhost:4567/productos", {
+
+              nombre: nombre_,
+              password: password_
+          })
+              .then(function (response) {
+                  console.log(response);
+                  document.getElementById("id1").value = response.data.id
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+      })
+
+      bConsultar.addEventListener("click", function () {
+          let id_ = document.getElementById("id1").value
+          let nombre_ = document.getElementById("id2").value
+          let precio_ = document.getElementById("id3").value
+          let link_ = document.getElementById("id4").value
+          console.log(id_ + " " + nombre_ + " " + precio_+ " " + link_)
+          axios.get("localhost:4567/productos")
+              .then(function (response) {
+                  console.log(response);
+                  tabla(response.data)
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+      })
+
+    /*  bExiste.addEventListener("click", function () {
+          let id_ = document.getElementById("id1").value
+          let nombre_ = document.getElementById("id2").value
+          let password_ = document.getElementById("id3").value
+          console.log(id_ + " " + nombre_ + " " + password_)
+          axios.post("https://despliegue-production-d251.up.railway.app/existe", {
+              id: id_,
+              nombre: nombre_,
+              password: password_
+          })
+              .then(function (response) {
+                  console.log(response);
+                  if (response.data.status == true ){ 
+                      document.getElementById("usuarios").innerHTML = "";
+                      tabla2("["+response.data.usuario+"]")
+                  }
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+      });
+  
+  
+      function tabla(response) {
+          const myObj = JSON.parse(JSON.stringify(response));
+          console.log(myObj)
+          let text = "<table class='table'><tbody>"
+              text += "<thead><th>ID</th><th>Nombre</th><th>Password</th></thead>"
+          for (let x in myObj) {
+              text += "<tr><td>" + myObj[x].id + "</td><td>" + myObj[x].nombre + "</td><td>" + myObj[x].password + "</td></tr>";
+          }
+          text += "</tbody></table>"    
+          document.getElementById("usuarios").innerHTML = text;
+      }
+  
+      function tabla2(response) {
+          const myObj = JSON.parse((response));
+          console.log(myObj)
+          let text = "<table class='table'><tbody>"
+              text += "<thead><th>ID</th><th>Nombre</th><th>Password</th></thead>"
+          for (let x in myObj) {
+              text += "<tr><td>" + myObj[x].id + "</td><td>" + myObj[x].nombre + "</td><td>" + myObj[x].password + "</td></tr>";
+          }
+          text += "</tbody></table>"    
+          document.getElementById("usuarios").innerHTML = text;
+      }*/
+  </script>
     
     
   </body>
