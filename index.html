@@ -304,18 +304,25 @@
             <div class="formulario" id="formulario">
               <h2>Inicia tú sesión</h2>
               <p>Ingresa tús datos o crea una nueva cuenta</p>
-              <form>
+              <form action="" id="formulario">
                 <div>
-                  <input type="email" name="email" placeholder="Correo electrónico" id="email">
-                  <p class="error">Por favor escribe tu correo</p>
+                  <textarea name="id" placeholder="ID" id="id"></textarea>
+                  <p class="error">Por favor escribe tu id</p>
                 </div>
                 <div>
-                  <textarea name="password" placeholder="Contraseña" id="password"></textarea>
-                  <p class="error">Por favor verifica tu Contraseña</p>
+                  <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
+                  <p class="error">Por favor verifica tu nombre</p>
                 </div>
                 <div>
-                  <input type="submit" name="enviar" value="ENTRAR">
-                  <input type="submit" name="registratse" value="REGISTRATE">
+                  <textarea name="precio" placeholder="Precio" id="precio"></textarea>
+                  <p class="error">Por favor verifica el precio</p>
+                </div>
+                <div>
+                  <textarea name="link" placeholder="Link" id="link"></textarea>
+                  <p class="error">Por favor verifica el link</p>
+                </div>
+                <div>
+                  <input type="submit" name="enviar" value="ENTRAR" id="enviar">
                 </div>
               </form>
             </div>
@@ -366,30 +373,25 @@
     t(function(){t('[data-parallax="scroll"]').parallax()})} -->
     <script src="js/prefixfree.min.js"></script>
       
+    <script>
+      var bCrear = document.getElementById("enviar")
+      var bConsultar = document.getElementById("")
+      var bExiste = document.getElementById("")
+      var bDesbloquear = document.getElementById("")
 
-  <script>
-      var bCrear = document.getElementById("crear")
-      var bConsultar = document.getElementById("consultar")
-      //var bExiste = document.getElementById("existe")
-      //var bDesbloquear = document.getElementById("desbloquear")
-
-      /*bDesbloquear.addEventListener("click", function () {
-          if ( document.getElementById("desbloquear").checked == true )
-              document.getElementById("id1").disabled = false
-          else
-              document.getElementById("id1").disabled = true
-      })*/
 
       bCrear.addEventListener("click", function () {
-          let id_ = document.getElementById("id1").value
-          let nombre_ = document.getElementById("id2").value
-          let producto_ = document.getElementById("id3").value
-          let link_ = document.getElementById("id4").value
-          console.log(id_ + " " + nombre_ + " " + producto_ + " " + link_)
-          axios.post("localhost:4567/productos", {
+          let id_ = document.getElementById("id").value
+          let nombre_ = document.getElementById("nombre").value
+          let precio_ = document.getElementById("precio").value
+          let link_ = document.getElementById("link").value
+          console.log(id_ + " " + nombre_ + " " + precio_ + " " + link_)
+          *axios.post("localhost:4567/creaProductos", {
 
+              id: id_,
               nombre: nombre_,
-              password: password_
+              precio: precio_,
+              link: link_
           })
               .then(function (response) {
                   console.log(response);
@@ -400,13 +402,20 @@
               });
       })
 
+
+     /* bDesbloquear.addEventListener("click", function () {
+          if ( document.getElementById("desbloquear").checked == true )
+              document.getElementById("id1").disabled = false
+          else
+              document.getElementById("id1").disabled = true
+      })
+
       bConsultar.addEventListener("click", function () {
           let id_ = document.getElementById("id1").value
           let nombre_ = document.getElementById("id2").value
-          let precio_ = document.getElementById("id3").value
-          let link_ = document.getElementById("id4").value
-          console.log(id_ + " " + nombre_ + " " + precio_+ " " + link_)
-          axios.get("localhost:4567/productos")
+          let password_ = document.getElementById("id3").value
+          console.log(id_ + " " + nombre_ + " " + password_)
+          axios.get("https://despliegue-production-d251.up.railway.app/usuarios")
               .then(function (response) {
                   console.log(response);
                   tabla(response.data)
@@ -416,7 +425,7 @@
               });
       })
 
-    /*  bExiste.addEventListener("click", function () {
+      bExiste.addEventListener("click", function () {
           let id_ = document.getElementById("id1").value
           let nombre_ = document.getElementById("id2").value
           let password_ = document.getElementById("id3").value
@@ -463,6 +472,7 @@
           document.getElementById("usuarios").innerHTML = text;
       }*/
   </script>
+
     
     
   </body>
