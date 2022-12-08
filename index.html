@@ -315,7 +315,27 @@
                 </div>
                 <div>
                   <input type="submit" name="enviar" value="ENTRAR" id="Enviar">
+<<<<<<< HEAD
                   <input type="submit" name="registratse" value="REGISTRATE" id="Registro">
+=======
+                  <input type="submit" name="registratse" value="REGISTRATE">
+=======
+                  <textarea name="precio" placeholder="Precio" id="precio"></textarea>
+                  <p class="error">Por favor verifica el precio</p>
+                </div>
+                <div>
+                  <textarea name="link" placeholder="Link" id="link"></textarea>
+                  <p class="error">Por favor verifica el link</p>
+                </div>
+                <div>
+<<<<<<< HEAD
+                  <input type="submit" name="entrar" value="ENTRAR" id="entrar">
+                  <input type="submit" name="registrar" value="REGISTRAR" id="registrar">
+=======
+                  <input type="submit" name="enviar" value="ENTRAR" id="enviar">
+>>>>>>> 5d2cb10dda2922d246da73e252a0208bba4b6824
+>>>>>>> ba22632f8926bbcda747b870f21fa3cb703e8405
+>>>>>>> 3afd9dcfa85021ae00cdf6f3444eada7b7e8e002
                 </div>
               </form>
             </div>
@@ -367,6 +387,7 @@
     <script src="js/prefixfree.min.js"></script>
       
     <script>
+<<<<<<< HEAD
       var bCrear = document.getElementById("Registro")
       var bConsultar = document.getElementById("Enviar")
       //var bExiste = document.getElementById("")
@@ -384,6 +405,26 @@
               precio: precio2,
               link: link2
              
+=======
+      var bCrear = document.getElementById("enviar")
+      var bConsultar = document.getElementById("registrar")
+      var bExiste = document.getElementById("")
+      var bDesbloquear = document.getElementById("")
+
+
+      bCrear.addEventListener("click", function () {
+          let id_ = document.getElementById("id").value
+          let nombre_ = document.getElementById("nombre").value
+          let precio_ = document.getElementById("precio").value
+          let link_ = document.getElementById("link").value
+          console.log(id_ + " " + nombre_ + " " + precio_ + " " + link_)
+          axios.post("localhost:4567/creaProductos", {
+
+              id: id_,
+              nombre: nombre_,
+              precio: precio_,
+              link: link_
+>>>>>>> 3afd9dcfa85021ae00cdf6f3444eada7b7e8e002
           })
               .then(function (response) {
                   console.log(response);
@@ -395,6 +436,34 @@
               });
       })
 
+      bConsultar.addEventListener("click", function () {
+          //let id_ = document.getElementById("id").value
+          //let nombre_ = document.getElementById("nombre").value
+          //let precio_ = document.getElementById("precio").value
+          //let link_ = document.getElementById("link").value
+          //console.log(id_ + " " + nombre_ + " " + precio_ + " " + link_)
+          axios.get("localhost:4567/productos")
+              .then(function (response) {
+                  console.log(response.data);
+                  tabla(response.data)
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+      })
+      
+
+      function tabla(response) {
+          const myObj = JSON.parse(JSON.stringify(response));
+          console.log(myObj)
+          let text = "<table class='table'><tbody>"
+              text += "<thead><th>ID</th><th>Nombre</th><th>Precio</th><th>Link</th></thead>"
+          for (let x in myObj) {
+              text += "<tr><td>" + myObj[x].id + "</td><td>" + myObj[x].nombre + "</td><td>" + myObj[x].precio + "</td><td>" + myObj[x].link +"</td></tr>";
+          }
+          text += "</tbody></table>"    
+          document.getElementById("productos").innerHTML = text;
+      }
 
       bConsultar.addEventListener("click", function () {
           axios.get("http://localhost:4567/productos")
