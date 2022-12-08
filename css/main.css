@@ -753,7 +753,7 @@ footer .footer-redes a:hover{
     display: none;
   }
 
-  .main .contacto .contenedor-formulario .formulario form input[type="text"], .main .contacto .contenedor-formulario .formulario form input[type="email"], .main .contacto .contenedor-formulario .formulario form textarea{
+  .main .contacto .contenedor-formulario .formulario form input[type="text"], .main .contacto .contenedor-formulario .formulario form input[type="id"], .main .contacto .contenedor-formulario .formulario form textarea{
     text-align: center;
   }
 
