@@ -322,7 +322,8 @@
                   <p class="error">Por favor verifica el link</p>
                 </div>
                 <div>
-                  <input type="submit" name="enviar" value="ENTRAR" id="enviar">
+                  <input type="submit" name="entrar" value="ENTRAR" id="entrar">
+                  <input type="submit" name="registrar" value="REGISTRAR" id="registrar">
                 </div>
               </form>
             </div>
@@ -375,7 +376,7 @@
       
     <script>
       var bCrear = document.getElementById("enviar")
-      var bConsultar = document.getElementById("")
+      var bConsultar = document.getElementById("registrar")
       var bExiste = document.getElementById("")
       var bDesbloquear = document.getElementById("")
 
@@ -386,7 +387,7 @@
           let precio_ = document.getElementById("precio").value
           let link_ = document.getElementById("link").value
           console.log(id_ + " " + nombre_ + " " + precio_ + " " + link_)
-          *axios.post("localhost:4567/creaProductos", {
+          axios.post("localhost:4567/creaProductos", {
 
               id: id_,
               nombre: nombre_,
@@ -402,6 +403,34 @@
               });
       })
 
+      bConsultar.addEventListener("click", function () {
+          //let id_ = document.getElementById("id").value
+          //let nombre_ = document.getElementById("nombre").value
+          //let precio_ = document.getElementById("precio").value
+          //let link_ = document.getElementById("link").value
+          //console.log(id_ + " " + nombre_ + " " + precio_ + " " + link_)
+          axios.get("localhost:4567/productos")
+              .then(function (response) {
+                  console.log(response.data);
+                  tabla(response.data)
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+      })
+      
+
+      function tabla(response) {
+          const myObj = JSON.parse(JSON.stringify(response));
+          console.log(myObj)
+          let text = "<table class='table'><tbody>"
+              text += "<thead><th>ID</th><th>Nombre</th><th>Precio</th><th>Link</th></thead>"
+          for (let x in myObj) {
+              text += "<tr><td>" + myObj[x].id + "</td><td>" + myObj[x].nombre + "</td><td>" + myObj[x].precio + "</td><td>" + myObj[x].link +"</td></tr>";
+          }
+          text += "</tbody></table>"    
+          document.getElementById("productos").innerHTML = text;
+      }
 
      /* bDesbloquear.addEventListener("click", function () {
           if ( document.getElementById("desbloquear").checked == true )
