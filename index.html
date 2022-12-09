@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">                                                                                                                                </html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -112,7 +113,11 @@
             <h2>Ultimos Productos</h2>
             <p>Somos especialistas en entregar los mejores productos y la más alta calidad</p>
           </div>
-          <div class="galeria-proyectos">
+          <div class="galeria-proyectos" th:each="prod: ${allProducts}">
+            <div class="proyecto">
+              <figcaption th:text="${prod.name}"">NULL</figcaption>
+            </div>
+            
             <div class="proyecto">
               <img src="https://www.bbva.com/wp-content/uploads/2019/08/echo.jpg" alt="Proyecto" class="imagen-proyecto"
               alt="Barra de sonido Echo, una bocina ">
@@ -304,7 +309,7 @@
             <div class="formulario" id="formulario">
               <h2>Inicia tú sesión</h2>
               <p>Ingresa tús datos o crea una nueva cuenta</p>
-              <form action="" id="formulario">
+              <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
                 <div>
                   <textarea name="id" placeholder="ID" id="id"></textarea>
                   <p class="error">Por favor escribe tu id</p>
@@ -375,36 +380,27 @@
     <script src="js/prefixfree.min.js"></script>
       
     <script>
-
-      var bCrear = document.getElementById("Registro")
-      var bConsultar = document.getElementById("Enviar")
+      var URL_BASE = "http://localhost:4567"
+      var bCrear = document.getElementById("registrar")
+      var bConsultar = document.getElementById("enviar")
       //var bExiste = document.getElementById("")
       //var bDesbloquear = document.getElementById("")
 
-
-
-      var bCrear = document.getElementById("enviar")
-      var bConsultar = document.getElementById("registrar")
-      var bExiste = document.getElementById("")
-      var bDesbloquear = document.getElementById("")
 
       bCrear.addEventListener("click", function () {
           let id_ = document.getElementById("id").value
           let nombre_ = document.getElementById("nombre").value
           let precio_ = document.getElementById("precio").value
           let link_ = document.getElementById("linkp").value
-          console.log(id_ + " " + nombre_ + " " + precio_ + " " + link_)
-          axios.post("localhost:4567/creaProductos", {
-
+          axios.post(URL_BASE + "/creaProductos", {
               id: id_,
               nombre: nombre_,
               precio: precio_,
               link: link_
-
-          })
+            })
               .then(function (response) {
                   console.log(response);
-                  document.getElementById("id").value = response.data.id
+                  //document.getElementById("id").value = response.data.id
                   console.log(response.data);
               })
               .catch(function (error) {
@@ -413,7 +409,7 @@
       })
 
       bConsultar.addEventListener("click", function () {
-          axios.get("http://localhost:4567/productos")
+          axios.get(URL_BASE +"/productos")
               .then(function (response) {
                   console.log(response.data);
                   //tabla(response.data)
@@ -422,6 +418,8 @@
                   console.log(error);
               });
       })
+
+
       function tabla(response) {
           const myObj = JSON.parse(JSON.stringify(response));
           console.log(myObj)
