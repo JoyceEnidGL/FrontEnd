@@ -6,6 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>S - Gadgets</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    
+    <script>
+      var URL_BASE = "http://localhost:4567/"
+      var prod
+          axios.get(URL_BASE + "/productos")
+              .then(function (response) {
+                const dt = response.data
+                var text = ""
+                for(i in dt){
+
+                  text += '<div class="proyecto">' +
+                            '<img src="'+dt[i].link+'" alt="Proyecto" class="imagen-proyecto"> '+
+                            '<figcaption> '+dt[i].nombre+' </figcaption> '+
+                            '<div class="coloca">'+
+                              '<figcaption class="price">'+dt[i].precio+'</figcaption>'+
+                            '</div>'+
+                          '</div>'
+                  tabla(text)
+                }
+              })
+              .catch(function (error) {
+                  console.log(error);
+              });
+      function tabla(text) {
+        document.getElementById("galeria-proyectos").innerHTML = text;
+        
+      }
+    </script>
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
@@ -113,78 +142,7 @@
             <h2>Ultimos Productos</h2>
             <p>Somos especialistas en entregar los mejores productos y la más alta calidad</p>
           </div>
-          <div class="galeria-proyectos" th:each="prod: ${allProducts}">
-            <div class="proyecto">
-              <figcaption th:text="${prod.name}"">NULL</figcaption>
-            </div>
-            
-            <div class="proyecto">
-              <img src="https://www.bbva.com/wp-content/uploads/2019/08/echo.jpg" alt="Proyecto" class="imagen-proyecto"
-              alt="Barra de sonido Echo, una bocina ">
-              <figcaption>Altavoz Inteligente con Alexa</figcaption>
-              <div class="coloca">
-               <figcaption class="price">$200</figcaption> 
-              </div>
-               
-            </div>
-            <div class="proyecto">
-              <img src="https://cdn1.coppel.com/images/catalog/mkp/420/3000/4201412-1.jpg" alt="Proyecto" class="imagen-proyecto">
-              <figcaption>Audifonos "Kawai" para niño</figcaption>
-              <div class="coloca">
-               <figcaption class="price">$100</figcaption> 
-              </div>
-            </div>
-            <div class="proyecto">
-              <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1635244175-31N6Ke9T6EL._SL500_.jpg?crop=1xw:1.00xh;center,top&resize=480:*" alt="Proyecto" class="imagen-proyecto">
-              <figcaption>Fire Stick TV lite 4k</figcaption>
-              <div class="coloca">
-               <figcaption class="price">$750</figcaption> 
-              </div>
-            </div>
-            <div class="proyecto">
-              <img src="https://topesdegama.com/app/uploads-topesdegama.com/2020/10/gadget-smart-tv.jpg?x=480&y=375&quality=40" alt="Proyecto" class="imagen-proyecto">
-              <figcaption>Google Chromecast lite</figcaption>
-              <div class="coloca">
-               <figcaption class="price">$400</figcaption> 
-              </div>
-            </div>
-            <div class="proyecto">
-              <img src="https://s03.s3c.es/imag/_v0/770x420/b/9/2/490x_realme-Watch6.png" alt="Proyecto" class="imagen-proyecto">
-              <figcaption>Smartwatch J50-NRT</figcaption>
-              <div class="coloca">
-               <figcaption class="price">$250</figcaption> 
-              </div>
-            </div>
-            <div class="proyecto">
-              <img src="https://www.teacherlists.com/blog/wp-content/uploads/2021/11/1121-the-top-22-tech-gadgets-drawing-tablet-body.png" alt="Proyecto" class="imagen-proyecto">
-              <figcaption>Tablet de diseño Inteligente</figcaption>
-              <div class="coloca">
-               <figcaption class="price">$1,000</figcaption> 
-              </div>
-            </div>
-            <div class="proyecto">
-              <img src="https://tangs-prd-cdn.ascentismedia.com/ProductImages/01bb94ea-9e7b-4b39-b29c-69c19225ab75/1/240x240/jbl-wave-100tws-black.jpg" alt="Proyecto" class="imagen-proyecto">
-              <figcaption>Audifonos JBL-Active 240</figcaption>
-              <div class="coloca">
-               <figcaption class="price">$600</figcaption> 
-              </div>
-            </div>
-            <div class="proyecto">
-              <img src="https://helios-i.mashable.com/imagery/articles/02mx2tIYSDwagACFLrfYbuW/images-16.fill.size_2000x1125.v1637593399.jpg" alt="protecyo" class="imagen-proyecto">
-              <figcaption>Bateria portatil 10,000mAh</figcaption>
-              <div class="coloca">
-               <figcaption class="price">$200</figcaption> 
-              </div>
-            </div>
-            <div class="proyecto">
-              <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1643289660-roccat-microphone-1643289647.jpg?crop=1xw:1xh;center,top&resize=480:*" alt="protecyo" class="imagen-proyecto">
-              <figcaption>Microfono Gamer LTJ-R500</figcaption>
-              <div class="coloca">
-               <figcaption class="price">$500</figcaption> 
-               <!--<a id="boton1" href="#" class="boton01">Agregar al carrito</a>-->
-               <!--<button type="button" id="agregar" class=" mt-5 btn btn-lg btn-danger"">Agregar</button>-->
-              </div>
-            </div>
+          <div class="galeria-proyectos" id="galeria-proyectos">
           </div>
         </div>
       </section>
@@ -310,10 +268,7 @@
               <h2>Inicia tú sesión</h2>
               <p>Ingresa tús datos o crea una nueva cuenta</p>
               <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
-                <div>
-                  <textarea name="id" placeholder="ID" id="id"></textarea>
-                  <p class="error">Por favor escribe tu id</p>
-                </div>
+               
                 <div>
                   <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
                   <p class="error">Por favor verifica tu nombre</p>
@@ -388,20 +343,17 @@
 
 
       bCrear.addEventListener("click", function () {
-          let id_ = document.getElementById("id").value
+          //let id_ = document.getElementById("id").value
           let nombre_ = document.getElementById("nombre").value
           let precio_ = document.getElementById("precio").value
           let link_ = document.getElementById("linkp").value
           axios.post(URL_BASE + "/creaProductos", {
-              id: id_,
               nombre: nombre_,
               precio: precio_,
               link: link_
             })
               .then(function (response) {
-                  console.log(response);
-                  //document.getElementById("id").value = response.data.id
-                  console.log(response.data);
+                  window.location.reload()
               })
               .catch(function (error) {
                   console.log(error);
@@ -420,7 +372,7 @@
       })
 
 
-      function tabla(response) {
+      /*function tabla(response) {
           const myObj = JSON.parse(JSON.stringify(response));
           console.log(myObj)
           let text = "<table class='table'><tbody>"
@@ -430,7 +382,7 @@
           }
           text += "</tbody></table>"    
           document.getElementById("productos").innerHTML = text;
-      }
+      }*/
 
   </script>
 
@@ -438,4 +390,3 @@
     
   </body>
 </html>
-        
