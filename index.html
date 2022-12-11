@@ -9,7 +9,8 @@
     
     
     <script>
-      var URL_BASE = "http://localhost:4567/"
+      //var URL_BASE = "http://localhost:4567/"
+      var URL_BASE = "https://backend-production-1432.up.railway.app"
       var prod
           axios.get(URL_BASE + "/productos")
               .then(function (response) {
@@ -66,7 +67,7 @@
           <a href="#proyectos" class="scroll-suave">PRODUCTOS</a>
           <a href="#acercaDe" class="scroll-acercaDe">CONÓCENOS</a>
           <a href="#equipo" class="scroll-equipo">NUESTRO EQUIPO</a>
-          <a href="#contacto" class="scroll-suave">LOGING</a>
+          <a href="#contacto" class="scroll-suave">AGREGA PRODUCTOS</a>
         </nav>
       </div>
 
@@ -82,7 +83,7 @@
           <a href="#proyectos" class="scroll-suave">PRODUCTOS</a>
           <a href="#acercaDe" class="scroll-acercaDe">CONÓCENOS</a>
           <a href="#equipo" class="scroll-equipo">NUESTRO EQUIPO</a>
-          <a href="#contacto" class="scroll-suave">LOGING</a>
+          <a href="#contacto" class="scroll-suave">AGREGA PRODUCTOS</a>
         </nav>
 
         <div class="top-redes">
@@ -109,7 +110,7 @@
         <a href="#proyectos" class="scroll-suave">PRODUCTOS</a>
         <a href="#acercaDe" class="scroll-acercaDe">CONÓCENOS</a>
         <a href="#equipo" class="scroll-equipo">NUESTRO EQUIPO</a>
-        <a href="#contacto" class="scroll-suave">LOGING</a>
+        <a href="#contacto" class="scroll-suave">AGREGA PRODUCTOS</a>
       </nav>
       <div class="top-redes">
         <a href="#">
@@ -156,7 +157,11 @@
             <p>Disfruta de la mejor tecnología y las mejores marcas en productos electrónicos</p>
           </div>
           <div class="texto-acerca-de">
+<<<<<<< HEAD
             <p>Conoce los mejores productos que hay</p>
+=======
+            <p>Los mejores productos precios/calidad</p>
+>>>>>>> 793e3c649a1a85d418a3fc668d419d1ef6065924
           </div>
         </div>
       </section>
@@ -266,9 +271,15 @@
         <div class="contenedor">
           <div class="contenedor-formulario">
             <div class="formulario" id="formulario">
+<<<<<<< HEAD
               <h2>Inicia tú sesión</h2>
               <p>Ingresa tús datos o crea una nueva cuenta</p>
               <form id="formulario">
+=======
+              <h2>Agrega un producto</h2>
+              <p>Ingresa tús datos o crea un nuevo producto</p>
+              <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
+>>>>>>> 793e3c649a1a85d418a3fc668d419d1ef6065924
                
                 <div>
                   <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
@@ -351,7 +362,7 @@
     <script src="js/prefixfree.min.js"></script>
       
     <script>
-      var URL_BASE = "http://localhost:4567"
+      var URL_BASE = "https://backend-production-1432.up.railway.app"
       var bCrear = document.getElementById("registrar")
       var bBorrar = document.getElementById("btnborra");
      /* bCrear.addEventListener("click", function () {
