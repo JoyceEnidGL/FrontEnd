@@ -19,12 +19,13 @@
 
                   text += '<div class="proyecto">' +
                             '<img src="'+dt[i].link+'" alt="Proyecto" class="imagen-proyecto"> '+
+                            '<figcaption> '+'ID:'+dt[i].id+' </figcaption>'+
                             '<figcaption> '+dt[i].nombre+' </figcaption> '+
                             '<div class="coloca">'+
-                              '<figcaption class="price">'+dt[i].precio+'</figcaption>'+
+                              '<figcaption class="price">'+'$'+dt[i].precio+'</figcaption>'+
                             '</div>'+
                           '</div>'
-                  tabla(text)
+                  tabla(text);
                 }
               })
               .catch(function (error) {
@@ -155,7 +156,7 @@
             <p>Disfruta de la mejor tecnología y las mejores marcas en productos electrónicos</p>
           </div>
           <div class="texto-acerca-de">
-            <p>Agrega los productos que desees con solo un click </p>
+            <p>Conoce los mejores productos que hay</p>
           </div>
         </div>
       </section>
@@ -267,11 +268,10 @@
             <div class="formulario" id="formulario">
               <h2>Inicia tú sesión</h2>
               <p>Ingresa tús datos o crea una nueva cuenta</p>
-              <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
+              <form id="formulario">
                
                 <div>
                   <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
-                  <p class="error">Por favor verifica tu nombre</p>
                 </div>
                <div>
                 <textarea name="preci" placeholder="precio" id="precio"></textarea>
@@ -283,13 +283,29 @@
 
                 <div>
                   <input type="submit" name="registrar" value="REGISTRAR" id="registrar">
-                  <input type="submit" name="enviar" value="ENTRAR" id="enviar">
+                  <input type="submit" name="enviar" value="ACTUALIZAR" id="actualizar">
                 </div>
               </form>
             </div>
 
-            <div class="foto">
-
+            <div class="formulario" id="formularioBorrar">
+              <h2>Aqui puedes editar los productos</h2>
+              <p>Ingresa tús datos</p>
+              <form id="formularioBorrar">
+               
+                <div>
+                  <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
+                </div>
+               <div>
+                <textarea name="preci" placeholder="precio" id="precio"></textarea>
+               </div>
+               <div>
+                <textarea name="Borrar" placeholder="ID" id="Borrarid"></textarea>
+               </div>
+                <div>
+                  <input type="button" name="borrar" value="BORRAR" id="btnborra">
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -337,12 +353,8 @@
     <script>
       var URL_BASE = "http://localhost:4567"
       var bCrear = document.getElementById("registrar")
-      var bConsultar = document.getElementById("enviar")
-      //var bExiste = document.getElementById("")
-      //var bDesbloquear = document.getElementById("")
-
-
-      bCrear.addEventListener("click", function () {
+      var bBorrar = document.getElementById("btnborra");
+     /* bCrear.addEventListener("click", function () {
           //let id_ = document.getElementById("id").value
           let nombre_ = document.getElementById("nombre").value
           let precio_ = document.getElementById("precio").value
@@ -359,9 +371,27 @@
               .catch(function (error) {
                   console.log(error+response.data);
               });
+      })*/
+
+     bBorrar.addEventListener("click", function(){
+        let id_=document.getElementById("Borrarid").value
+        console.log("hollaa");
+        axios.get(URL_BASE+"/borrarProducto",{
+          params:{
+           id : id_
+          }
+        }
+        ).then(function (response){
+          console.log(response.data);
+          window.location.reload();
+        }).catch(function (error){
+          console.log(error+response.document);
+        })
       })
 
-      bConsultar.addEventListener("click", function () {
+
+
+     /* bConsultar.addEventListener("click", function () {
           axios.get(URL_BASE +"/productos")
               .then(function (response) {
                   console.log(response.data);
@@ -370,24 +400,7 @@
               .catch(function (error) {
                   console.log(error);
               });
-      })
-
-
-      /*function tabla(response) {
-          const myObj = JSON.parse(JSON.stringify(response));
-          console.log(myObj)
-          let text = "<table class='table'><tbody>"
-              text += "<thead><th>ID</th><th>Nombre</th><th>Precio</th><th>Link</th></thead>"
-          for (let x in myObj) {
-              text += "<tr><td>" + myObj[x].id + "</td><td>" + myObj[x].nombre + "</td><td>" + myObj[x].precio + "</td><td>" + myObj[x].link +"</td></tr>";
-          }
-          text += "</tbody></table>"    
-          document.getElementById("productos").innerHTML = text;
-      }*/
-
+      })*/
   </script>
-
-    
-    
   </body>
 </html>
