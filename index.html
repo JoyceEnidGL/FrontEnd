@@ -157,11 +157,11 @@
             <p>Disfruta de la mejor tecnología y las mejores marcas en productos electrónicos</p>
           </div>
           <div class="texto-acerca-de">
-<<<<<<< HEAD
+
             <p>Conoce los mejores productos que hay</p>
-=======
+
             <p>Los mejores productos precios/calidad</p>
->>>>>>> 793e3c649a1a85d418a3fc668d419d1ef6065924
+
           </div>
         </div>
       </section>
@@ -271,15 +271,9 @@
         <div class="contenedor">
           <div class="contenedor-formulario">
             <div class="formulario" id="formulario">
-<<<<<<< HEAD
-              <h2>Inicia tú sesión</h2>
-              <p>Ingresa tús datos o crea una nueva cuenta</p>
               <form id="formulario">
-=======
               <h2>Agrega un producto</h2>
-              <p>Ingresa tús datos o crea un nuevo producto</p>
               <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
->>>>>>> 793e3c649a1a85d418a3fc668d419d1ef6065924
                
                 <div>
                   <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
@@ -294,14 +288,13 @@
 
                 <div>
                   <input type="submit" name="registrar" value="REGISTRAR" id="registrar">
-                  <input type="submit" name="enviar" value="ACTUALIZAR" id="actualizar">
+                  
                 </div>
               </form>
             </div>
 
             <div class="formulario" id="formularioBorrar">
-              <h2>Aqui puedes editar los productos</h2>
-              <p>Ingresa tús datos</p>
+              <h2>Edita algun producto</h2>
               <form id="formularioBorrar">
                
                 <div>
@@ -314,13 +307,33 @@
                 <textarea name="Borrar" placeholder="ID" id="Borrarid"></textarea>
                </div>
                 <div>
-                  <input type="button" name="borrar" value="BORRAR" id="btnborra">
+                  <input type="submit" name="enviar" value="ACTUALIZAR" id="actualizar">
+                </div>
+              </form>
+            </div>
+
+            <div class="formulario" id="formularioBorrar">
+              <h2>Elimina un producto</h2>
+              <form id="formularioBorrar">
+               
+                <div>
+                  <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
+                </div>
+               <div>
+                <textarea name="preci" placeholder="precio" id="precio"></textarea>
+               </div>
+               <div>
+                <textarea name="Borrar" placeholder="ID" id="Borrarid"></textarea>
+               </div>
+                <div>
+                  <input type="submit" name="borrar" value="BORRAR" id="btnborra">
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
+      
 
     </section>
 
