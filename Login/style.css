@@ -1,0 +1,11 @@
+.container{
+    background-color:rgba(192, 192, 192, 0.568);
+    border: 10px;
+    padding: 25px;
+    margin-top: 200px;
+}
+
+body{
+    background: url('./fondo.jpg') no-repeat;
+    background-size: cover;
+}
