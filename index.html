@@ -157,11 +157,7 @@
             <p>Disfruta de la mejor tecnología y las mejores marcas en productos electrónicos</p>
           </div>
           <div class="texto-acerca-de">
-<<<<<<< HEAD
             <p>Conoce los mejores productos que hay</p>
-=======
-            <p>Los mejores productos precios/calidad</p>
->>>>>>> 793e3c649a1a85d418a3fc668d419d1ef6065924
           </div>
         </div>
       </section>
@@ -271,15 +267,9 @@
         <div class="contenedor">
           <div class="contenedor-formulario">
             <div class="formulario" id="formulario">
-<<<<<<< HEAD
-              <h2>Inicia tú sesión</h2>
-              <p>Ingresa tús datos o crea una nueva cuenta</p>
+              <h2>Registra un nuevo articulo</h2>
+              <p>Verifique bien los datos</p>
               <form id="formulario">
-=======
-              <h2>Agrega un producto</h2>
-              <p>Ingresa tús datos o crea un nuevo producto</p>
-              <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
->>>>>>> 793e3c649a1a85d418a3fc668d419d1ef6065924
                
                 <div>
                   <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
@@ -294,7 +284,7 @@
 
                 <div>
                   <input type="submit" name="registrar" value="REGISTRAR" id="registrar">
-                  <input type="submit" name="enviar" value="ACTUALIZAR" id="actualizar">
+  
                 </div>
               </form>
             </div>
@@ -303,23 +293,33 @@
               <h2>Aqui puedes editar los productos</h2>
               <p>Ingresa tús datos</p>
               <form id="formularioBorrar">
-               
-                <div>
-                  <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
-                </div>
-               <div>
-                <textarea name="preci" placeholder="precio" id="precio"></textarea>
-               </div>
                <div>
                 <textarea name="Borrar" placeholder="ID" id="Borrarid"></textarea>
                </div>
                 <div>
-                  <input type="button" name="borrar" value="BORRAR" id="btnborra">
+                  <textarea name="nombre2" placeholder="Nombre" id="nombre2"></textarea>
                 </div>
+               <div>
+                <textarea name="preci2" placeholder="precio" id="precio2"></textarea>
+               </div>
+               <div>
+                <textarea name="link2" placeholder="Nuevo linck" id="link2"></textarea>
+               </div>
+
+
+               <div>
+                <input type="submit" name="enviar" value="ACTUALIZAR" id="actualizar">
+               </div>
+                
               </form>
             </div>
           </div>
         </div>
+
+        <div>
+          <input type="button" name="borrar" value="BORRAR" id="btnborra">
+        </div>
+
       </div>
 
     </section>
@@ -362,10 +362,10 @@
     <script src="js/prefixfree.min.js"></script>
       
     <script>
-      var URL_BASE = "https://backend-production-1432.up.railway.app"
+      var URL_BASE ="http://localhost:4567"
       var bCrear = document.getElementById("registrar")
       var bBorrar = document.getElementById("btnborra");
-     /* bCrear.addEventListener("click", function () {
+     bCrear.addEventListener("click", function () {
           //let id_ = document.getElementById("id").value
           let nombre_ = document.getElementById("nombre").value
           let precio_ = document.getElementById("precio").value
@@ -380,9 +380,9 @@
                   console.log(response.data);
               })
               .catch(function (error) {
-                  console.log(error+response.data);
+                  console.log(error);
               });
-      })*/
+      })
 
      bBorrar.addEventListener("click", function(){
         let id_=document.getElementById("Borrarid").value
@@ -396,7 +396,7 @@
           console.log(response.data);
           window.location.reload();
         }).catch(function (error){
-          console.log(error+response.document);
+          console.log(error);
         })
       })
 
