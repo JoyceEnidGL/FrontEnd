@@ -20,13 +20,12 @@
 
                   text += '<div class="proyecto">' +
                             '<img src="'+dt[i].link+'" alt="Proyecto" class="imagen-proyecto"> '+
-                            '<figcaption> '+'ID:'+dt[i].id+' </figcaption>'+
                             '<figcaption> '+dt[i].nombre+' </figcaption> '+
                             '<div class="coloca">'+
-                              '<figcaption class="price">'+'$'+dt[i].precio+'</figcaption>'+
+                              '<figcaption class="price">'+dt[i].precio+'</figcaption>'+
                             '</div>'+
                           '</div>'
-                  tabla(text);
+                  tabla(text)
                 }
               })
               .catch(function (error) {
@@ -157,15 +156,7 @@
             <p>Disfruta de la mejor tecnología y las mejores marcas en productos electrónicos</p>
           </div>
           <div class="texto-acerca-de">
-<<<<<<< HEAD
-            <p>Conoce los mejores productos que hay</p>
-=======
-
-            <p>Conoce los mejores productos que hay</p>
-
             <p>Los mejores productos precios/calidad</p>
-
->>>>>>> b53d623e91654c0193fc9c4bb5cac6bda2ae8b6c
           </div>
         </div>
       </section>
@@ -270,23 +261,18 @@
         </div>
       </section>
 
-      <!-- Contacto -->
+      <!-- Contacto
       <div class="contacto" id="contacto" data-parallax="scroll" data-image-src="img/bg-contacto.jpg">
         <div class="contenedor">
           <div class="contenedor-formulario">
             <div class="formulario" id="formulario">
-<<<<<<< HEAD
-              <h2>Registra un nuevo articulo</h2>
-              <p>Verifique bien los datos</p>
-              <form id="formulario">
-=======
-              <form id="formulario">
               <h2>Agrega un producto</h2>
+              <p>Ingresa tús datos o crea un nuevo producto</p>
               <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
->>>>>>> b53d623e91654c0193fc9c4bb5cac6bda2ae8b6c
                
                 <div>
                   <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
+                  <p class="error">Por favor verifica tu nombre</p>
                 </div>
                <div>
                 <textarea name="preci" placeholder="precio" id="precio"></textarea>
@@ -298,70 +284,17 @@
 
                 <div>
                   <input type="submit" name="registrar" value="REGISTRAR" id="registrar">
-<<<<<<< HEAD
-  
-=======
-                  
->>>>>>> b53d623e91654c0193fc9c4bb5cac6bda2ae8b6c
+                  <input type="submit" name="enviar" value="ENTRAR" id="enviar">
                 </div>
               </form>
             </div>
 
-            <div class="formulario" id="formularioBorrar">
-              <h2>Edita algun producto</h2>
-              <form id="formularioBorrar">
-               <div>
-                <textarea name="Borrar" placeholder="ID" id="Borrarid"></textarea>
-               </div>
-                <div>
-<<<<<<< HEAD
-                  <textarea name="nombre2" placeholder="Nombre" id="nombre2"></textarea>
-=======
-                  <input type="submit" name="enviar" value="ACTUALIZAR" id="actualizar">
-                </div>
-              </form>
-            </div>
+            <div class="foto">
 
-            <div class="formulario" id="formularioBorrar">
-              <h2>Elimina un producto</h2>
-              <form id="formularioBorrar">
-               
-                <div>
-                  <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
-                </div>
-               <div>
-                <textarea name="preci" placeholder="precio" id="precio"></textarea>
-               </div>
-               <div>
-                <textarea name="Borrar" placeholder="ID" id="Borrarid"></textarea>
-               </div>
-                <div>
-                  <input type="submit" name="borrar" value="BORRAR" id="btnborra">
->>>>>>> b53d623e91654c0193fc9c4bb5cac6bda2ae8b6c
-                </div>
-               <div>
-                <textarea name="preci2" placeholder="precio" id="precio2"></textarea>
-               </div>
-               <div>
-                <textarea name="link2" placeholder="Nuevo linck" id="link2"></textarea>
-               </div>
-
-
-               <div>
-                <input type="submit" name="enviar" value="ACTUALIZAR" id="actualizar">
-               </div>
-                
-              </form>
             </div>
           </div>
         </div>
-
-        <div>
-          <input type="button" name="borrar" value="BORRAR" id="btnborra">
-        </div>
-
-      </div>
-      
+      </div> -->
 
     </section>
 
@@ -403,10 +336,14 @@
     <script src="js/prefixfree.min.js"></script>
       
     <script>
-      var URL_BASE ="http://localhost:4567"
+      var URL_BASE = "https://backend-production-1432.up.railway.app"
       var bCrear = document.getElementById("registrar")
-      var bBorrar = document.getElementById("btnborra");
-     bCrear.addEventListener("click", function () {
+      var bConsultar = document.getElementById("enviar")
+      //var bExiste = document.getElementById("")
+      //var bDesbloquear = document.getElementById("")
+
+
+      bCrear.addEventListener("click", function () {
           //let id_ = document.getElementById("id").value
           let nombre_ = document.getElementById("nombre").value
           let precio_ = document.getElementById("precio").value
@@ -421,29 +358,11 @@
                   console.log(response.data);
               })
               .catch(function (error) {
-                  console.log(error);
+                  console.log(error+response.data);
               });
       })
 
-     bBorrar.addEventListener("click", function(){
-        let id_=document.getElementById("Borrarid").value
-        console.log("hollaa");
-        axios.get(URL_BASE+"/borrarProducto",{
-          params:{
-           id : id_
-          }
-        }
-        ).then(function (response){
-          console.log(response.data);
-          window.location.reload();
-        }).catch(function (error){
-          console.log(error);
-        })
-      })
-
-
-
-     /* bConsultar.addEventListener("click", function () {
+      bConsultar.addEventListener("click", function () {
           axios.get(URL_BASE +"/productos")
               .then(function (response) {
                   console.log(response.data);
@@ -452,7 +371,24 @@
               .catch(function (error) {
                   console.log(error);
               });
-      })*/
+      })
+
+
+      /*function tabla(response) {
+          const myObj = JSON.parse(JSON.stringify(response));
+          console.log(myObj)
+          let text = "<table class='table'><tbody>"
+              text += "<thead><th>ID</th><th>Nombre</th><th>Precio</th><th>Link</th></thead>"
+          for (let x in myObj) {
+              text += "<tr><td>" + myObj[x].id + "</td><td>" + myObj[x].nombre + "</td><td>" + myObj[x].precio + "</td><td>" + myObj[x].link +"</td></tr>";
+          }
+          text += "</tbody></table>"    
+          document.getElementById("productos").innerHTML = text;
+      }*/
+
   </script>
+
+    
+    
   </body>
 </html>
