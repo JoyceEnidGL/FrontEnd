@@ -272,30 +272,9 @@
       <div class="contacto" id="contacto" data-parallax="scroll" data-image-src="../img/bg-contacto.jpg">
         <div class="contenedor">
           <div class="contenedor-formulario">
-            <div class="formulario" id="formulario">
-              <form id="formulario">
-              <h2>Agrega un producto</h2>
-              <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
-               
-                <div>
-                  <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
-                </div>
-               <div>
-                <textarea name="preci" placeholder="precio" id="precio"></textarea>
-               </div>
-               <div>
-                <textarea name="link" placeholder="link" id="linkp"></textarea>
-               </div>
-
-
-                <div>
-                  <input type="submit" name="registrar" value="REGISTRAR" id="registrar">
-                  
-                </div>
-              </form>
-            </div>
 
             <div class="formulario" id="formularioEditar">
+              
               <h2>Edita algun producto</h2>
               <form id="formularioEditar">
                
@@ -323,6 +302,28 @@
               </form>
             </div>
 
+            <div class="formulario" id="formulario">
+              <form id="formulario">
+              <h2>Agrega un producto</h2>
+              <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
+               
+                <div>
+                  <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
+                </div>
+               <div>
+                <textarea name="preci" placeholder="precio" id="precio"></textarea>
+               </div>
+               <div>
+                <textarea name="link" placeholder="link" id="linkp"></textarea>
+               </div>
+
+
+                <div>
+                  <input type="button" class="btn btn-info" name="registrar" value="REGISTRAR" id="registrar">
+                  
+                </div>
+              </form>
+            </div>
 
 
             <div class="formulario" id="formularioBorrar">
@@ -401,9 +402,9 @@
               link: link_
             })
               .then(function (response) {
-                  alert(response.data);
-                  window.location.reload();
-                  console.log(response.data);
+                console.log(response.data);  
+                alert(response.data);
+                window.location.reload();
               })
               .catch(function (error) {
                   console.log(error);
