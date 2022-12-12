@@ -3,11 +3,11 @@ function validate(){
     var nombre = document.getElementById("nombre").value;
     var contrasena = document.getElementById("contrasena").value;
     if(nombre == "admin" && contrasena == "123456"){
-        window.location = "../index.html";
+        window.location = "index/index.html";
         return false;
     }if(nombre == "cliente" && contrasena == "654321"){
         alert("Ingreso exitosamente");
-        window.location = "../index2.html";
+        window.location = "index/index2.html";
         return false;
     }else{
         attempt--;
