@@ -9,8 +9,8 @@
     
     
     <script>
-      //var URL_BASE = "http://localhost:4567/"
-      var URL_BASE = "https://backend-production-1432.up.railway.app"
+      var URL_BASE = "http://localhost:4567/"
+      //var URL_BASE = "https://backend-production-1432.up.railway.app"
       var prod
           axios.get(URL_BASE + "/productos")
               .then(function (response) {
@@ -205,7 +205,7 @@
               <div class="texto">
                 <h3>Aaron Hernandez</h3>
                 <h4>Tecnico</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, nobis.</p>
+                <p>Siempre ofreciendo las mejores soluciones a tus necesidades </p>
               </div>
             </div>
 
@@ -216,7 +216,7 @@
               <div class="texto">
                 <h3>Joyce Enid</h3>
                 <h4>Tecnico</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, nobis.</p>
+                <p>Siempre ofreciendo las mejores soluciones a tus necesidades </p>
               </div>
             </div>
 
@@ -227,7 +227,7 @@
               <div class="texto">
                 <h3>Omar Alfredo</h3>
                 <h4>Tecnico</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, nobis.</p>
+                <p>Siempre ofreciendo las mejores soluciones a tus necesidades. LEVEL pro</p>
               </div>
             </div>
 
@@ -245,8 +245,8 @@
                 <i class="fa fa-paint-brush" aria-hidden="true"></i>
               </div>
               <div class="texto-info">
-                <h4>Imaginamos y diseñamos</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, assumenda.</p>
+                <h4>Creamos e inovamos</h4>
+                <p>Los mejores precios</p>
               </div>
             </div>
 
@@ -256,7 +256,7 @@
               </div>
               <div class="texto-info">
                 <h4>Creamos</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, assumenda.</p>
+                <p>Tenemos todo para tí</p>
               </div>
             </div>
 
@@ -331,7 +331,7 @@
                </div>
                
                <div>
-                <input type="button" name="borrar" value="BORRAR def" id="btnborra">
+                <input type="button" name="borrar" value="BORRAR ART" id="btnborra">
               </div>
 
               </form>
@@ -399,7 +399,8 @@
               link: link_
             })
               .then(function (response) {
-                  window.location.reload()
+                  alert(response.data);
+                  window.location.reload();
                   console.log(response.data);
               })
               .catch(function (error) {
@@ -409,7 +410,6 @@
 
      bBorrar.addEventListener("click", function(){
         let id_=document.getElementById("Borrarid").value
-        console.log("hollaa");
         axios.get(URL_BASE+"/borrarProducto",{
           params:{
            id : id_
@@ -417,8 +417,10 @@
         }
         ).then(function (response){
           console.log(response.data);
+          alert(response.data);
           window.location.reload();
         }).catch(function (error){
+          
           console.log(error);
         })
       })
@@ -429,15 +431,16 @@
         let nnombre=document.getElementById("nombre2").value
         let pprecio=document.getElementById("precio2").value
         let llink=document.getElementById("link2").value
-        axios.get(URL_BASE+"/actualizarProducto", {
-           params:{
+      
+        axios.post(URL_BASE+"/actualizarProducto", {
             id: iid,
             nombre: nnombre,
             precio: pprecio,
             link: llink
-          }
+          
         }).then((result) => {
-    console.log(result);
+    alert(result.data);
+   window.location.reload();
   });
       })
 
