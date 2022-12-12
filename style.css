@@ -6,6 +6,6 @@
 }
 
 body{
-    background: url('../img/fondo.jpg');
+    background: url('fondo.jpg');
     background-size: cover;
 }
