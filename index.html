@@ -157,15 +157,11 @@
             <p>Disfruta de la mejor tecnología y las mejores marcas en productos electrónicos</p>
           </div>
           <div class="texto-acerca-de">
-<<<<<<< HEAD
-            <p>Conoce los mejores productos que hay</p>
-=======
 
             <p>Conoce los mejores productos que hay</p>
 
             <p>Los mejores productos precios/calidad</p>
 
->>>>>>> b53d623e91654c0193fc9c4bb5cac6bda2ae8b6c
           </div>
         </div>
       </section>
@@ -275,15 +271,9 @@
         <div class="contenedor">
           <div class="contenedor-formulario">
             <div class="formulario" id="formulario">
-<<<<<<< HEAD
-              <h2>Registra un nuevo articulo</h2>
-              <p>Verifique bien los datos</p>
-              <form id="formulario">
-=======
               <form id="formulario">
               <h2>Agrega un producto</h2>
               <form action="http://localhost:4567/creaProductos" method="post" id="formulario">
->>>>>>> b53d623e91654c0193fc9c4bb5cac6bda2ae8b6c
                
                 <div>
                   <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
@@ -298,67 +288,58 @@
 
                 <div>
                   <input type="submit" name="registrar" value="REGISTRAR" id="registrar">
-<<<<<<< HEAD
-  
-=======
                   
->>>>>>> b53d623e91654c0193fc9c4bb5cac6bda2ae8b6c
                 </div>
               </form>
             </div>
 
-            <div class="formulario" id="formularioBorrar">
+            <div class="formulario" id="formularioEditar">
               <h2>Edita algun producto</h2>
-              <form id="formularioBorrar">
-               <div>
-                <textarea name="Borrar" placeholder="ID" id="Borrarid"></textarea>
-               </div>
-                <div>
-<<<<<<< HEAD
-                  <textarea name="nombre2" placeholder="Nombre" id="nombre2"></textarea>
-=======
-                  <input type="submit" name="enviar" value="ACTUALIZAR" id="actualizar">
-                </div>
-              </form>
-            </div>
-
-            <div class="formulario" id="formularioBorrar">
-              <h2>Elimina un producto</h2>
-              <form id="formularioBorrar">
+              <form id="formularioEditar">
                
                 <div>
-                  <textarea name="nombre" placeholder="Nombre" id="nombre"></textarea>
-                </div>
-               <div>
-                <textarea name="preci" placeholder="precio" id="precio"></textarea>
-               </div>
-               <div>
-                <textarea name="Borrar" placeholder="ID" id="Borrarid"></textarea>
-               </div>
+                  <textarea name="Borrareditar" placeholder="ID" id="id2"></textarea>
+                 </div>
+
                 <div>
-                  <input type="submit" name="borrar" value="BORRAR" id="btnborra">
->>>>>>> b53d623e91654c0193fc9c4bb5cac6bda2ae8b6c
+                  <textarea name="nombre" placeholder="Nombre" id="nombre2"></textarea>
                 </div>
                <div>
-                <textarea name="preci2" placeholder="precio" id="precio2"></textarea>
+                <textarea name="preci" placeholder="precio" id="precio2"></textarea>
                </div>
+             
+             
                <div>
                 <textarea name="link2" placeholder="Nuevo linck" id="link2"></textarea>
                </div>
 
 
                <div>
-                <input type="submit" name="enviar" value="ACTUALIZAR" id="actualizar">
+                <input type="button" name="enviar" value="ACTUALIZAR" id="actualizar">
                </div>
                 
+              </form>
+            </div>
+
+
+
+            <div class="formulario" id="formularioBorrar">
+              <h2>Elimina un producto</h2>
+              <form id="formularioBorrar">
+               <div>
+                <textarea name="Borrar" placeholder="ID" id="Borrarid"></textarea>
+               </div>
+               
+               <div>
+                <input type="button" name="borrar" value="BORRAR def" id="btnborra">
+              </div>
+
               </form>
             </div>
           </div>
         </div>
 
-        <div>
-          <input type="button" name="borrar" value="BORRAR" id="btnborra">
-        </div>
+        
 
       </div>
       
@@ -406,6 +387,7 @@
       var URL_BASE ="http://localhost:4567"
       var bCrear = document.getElementById("registrar")
       var bBorrar = document.getElementById("btnborra");
+      var bEditar = document.getElementById("actualizar");
      bCrear.addEventListener("click", function () {
           //let id_ = document.getElementById("id").value
           let nombre_ = document.getElementById("nombre").value
@@ -441,6 +423,23 @@
         })
       })
 
+
+      bEditar.addEventListener("click", function(){
+        let iid=document.getElementById("id2").value
+        let nnombre=document.getElementById("nombre2").value
+        let pprecio=document.getElementById("precio2").value
+        let llink=document.getElementById("link2").value
+        axios.get(URL_BASE+"/actualizarProducto", {
+           params:{
+            id: iid,
+            nombre: nnombre,
+            precio: pprecio,
+            link: llink
+          }
+        }).then((result) => {
+    console.log(result);
+  });
+      })
 
 
      /* bConsultar.addEventListener("click", function () {
