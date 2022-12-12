@@ -31,7 +31,7 @@ body{
 }
 
 .titulo-seccion h2{
-  color: #0089E0;
+  color: #1300e0;
   font-size: 3.125rem;
   margin-bottom: 15px;
   font-weight: 500;
@@ -122,7 +122,7 @@ body{
 }
 
 .menu-principal a:hover, .top-redes a:hover{
-  color: #0089E0;
+  color:  #1300e0;
 }
 
 .fixed-header{
@@ -147,7 +147,7 @@ body{
 }
 
 .fixed-header .menu-principal a:hover, .top-redes a:hover{
-  color: #0089E0;
+  color:  #1300e0;
 }
 
 /*Mobile menu*/
@@ -207,14 +207,14 @@ body{
   text-decoration: none;
   display: inline-block;
   padding: 8px 20px;
-  background: #0089E0;
+  background:  #1300e0;
   color: #fff;
   transition: all .7s ease;
 }
 
 .main .banner-principal .texto-banner a:hover{
   background: #fff;
-  color: #0089E0;
+  color: #1300e0;
 }
 
 /*Proyectos*/
@@ -231,6 +231,10 @@ body{
   justify-content: space-between;
   padding-bottom: 34px;
   border-bottom: 1px solid #ccc;
+}
+
+.main .proyectos .contenedor .titulo-seccion p{
+  color: #000000;
 }
 
 .main .proyectos .galeria-proyectos .proyecto{
@@ -270,7 +274,7 @@ body{
   height: 50px;
   top: 20px;
   right: 20px;
-  background: #0089E0;
+  background:  #1300e0;
   text-align: center;
   cursor: pointer;
 }
@@ -321,7 +325,13 @@ body{
 
 .main .acerca-de .contenedor .titulo-seccion h2{
   margin-bottom: 0;
+  
 }
+
+.main .acerca-de .contenedor .titulo-seccion p{
+  color: #000000;
+}
+
 
 .main .acerca-de .texto-acerca-de{
   width: 66.66%;
@@ -331,7 +341,7 @@ body{
 }
 
 .main .acerca-de .texto-acerca-de p{
-  color: rgb(27, 118, 192);
+  color:  #1300e0;
   font-size: 2rem;
   font-weight: 400;
 }
@@ -355,7 +365,7 @@ body{
   width: 15%;
   max-width: 950px;
   margin-right: 0.7%;
-  box-shadow: 0px 20px 40px #aaa;
+  box-shadow: 0px 20px 40px rgb(13, 13, 13);
 }
 
 .main .contenedor-slider .slider .slide img{
@@ -384,7 +394,7 @@ body{
 }
 
 .main .contenedor-slider .btn-anterior i:hover, .main .contenedor-slider .btn-siguiente i:hover{
-  color: #0089E0;
+  color: #1300e0;
 }
 
 /*Nuestro equipo*/
@@ -428,21 +438,25 @@ body{
   border-radius: 100%;
 }
 
+.main .nuestro-equipo .contenedor .titulo-seccion p{
+  color: #000000;
+}
+
 .main .nuestro-equipo .equipo .persona-equipo .texto h3{
   font-size: 1.3rem;
   font-weight: 500;
-  color: #0089E0;
+  color:  #1300e0;
 }
 
 .main .nuestro-equipo .equipo .persona-equipo .texto h4{
-  color: #979797;
+  color: #c90707;
   font-size: 0.8rem;
   font-weight: 400;
   margin-bottom: 15px;
 }
 
 .main .nuestro-equipo .equipo .persona-equipo .texto p{
-  color: #979797;
+  color: #000000;
   font-size: 0.9rem;
   font-weight: 400;
 }
@@ -498,7 +512,7 @@ body{
 }
 
 .main .info-extra .contenedor .info .contenido-info .texto-info p{
-  color: #979797;
+  color: hsl(0, 0%, 100%);
   font-size: 1rem;
   font-weight: 400;
 }
@@ -539,7 +553,7 @@ body{
 .main .contacto .contenedor-formulario .formulario h2{
   font-size: 1.375rem;
   line-height: 24px;
-  color: #0089E0;
+  color: #1300e0;
   font-weight: 500;
   margin-bottom: 10px;
 }
@@ -584,9 +598,9 @@ body{
 .main .contacto .contenedor-formulario .formulario form input[type="submit"]{
   width: 100%;
   border: none;
-  border: 1px solid #0089E0;
+  border: 1px solid  #1300e0;
   padding: 8px;
-  background: #0089E0;
+  background:  #1300e0;
   color: #fff;
   font-size: 0.9rem;
   font-family: 'Poppins', sans-serif;
@@ -597,7 +611,7 @@ body{
 
 .main .contacto .contenedor-formulario .formulario form input[type="submit"]:hover{
   background: #fff;
-  color: #0089E0;
+  color:  #1300e0;
 }
 
 .main .contacto .contenedor-formulario .foto{
@@ -625,7 +639,7 @@ footer{
 }
 
 footer .copy{
-  color: #979797;
+  color: #000000;
   font-size: 0.9rem;
   font-weight: 400;
   margin-bottom: 15px;
@@ -644,7 +658,7 @@ footer .footer-redes a{
 }
 
 footer .footer-redes a:hover{
-  color: #0089E0;
+  color:  #1300e0;
 }
 
 
